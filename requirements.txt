@@ -1,0 +1,8 @@
+uvicorn[standard]
+pydantic[email]
+fastapi
+mysql-connector-python
+sqlalchemy
+cryptography
+ulid-py
+python-multipart

@@ -25,7 +25,7 @@ def generate_ulid() -> str:
 async def save_image(nama: str, path: str, image: UploadFile = File(...)):
     if image.filename:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
         file_extension = os.path.splitext(image.filename)[1]
-        filename = f'{nama.replace(' ', '_')}_{int(time.time())}{file_extension}'
+        filename = f"{nama.replace(' ', '_')}_{int(time.time())}{file_extension}"
         
         os.makedirs(path, exist_ok=True)
         file_path = os.path.join(path, filename)

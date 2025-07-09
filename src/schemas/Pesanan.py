@@ -1,5 +1,6 @@
 from typing import Optional, List
 from pydantic import BaseModel
+from datetime import datetime
 from src.enums import StatusPesananEnum
 from .Menu import MenuResponse
 from .User import UserResponse
@@ -21,6 +22,7 @@ class PesananUpdate(BaseModel):
 
 class PesananResponse(PesananBase):
     id: str
+    created_at: datetime
     menu: Optional[MenuResponse] = None
     user: Optional[UserResponse] = None
 
@@ -29,5 +31,6 @@ class PesananResponse(PesananBase):
 
 class UserPesanan(BaseModel):
     id: str
+    created_at: datetime
     status: StatusPesananEnum
     menu: Optional[MenuResponse] = None

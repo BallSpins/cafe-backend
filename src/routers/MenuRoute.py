@@ -64,7 +64,7 @@ async def update_menu(
     nama: Optional[str] = Form(None),
     harga: Optional[int] = Form(None),
     status: Optional[StatusMenuEnum] = Form(None),
-    image: UploadFile = File(None), 
+    image: Optional[UploadFile] = File(None), 
     controller: MenuController = Depends(get_menu_controller)
     ):
     try:

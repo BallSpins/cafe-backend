@@ -96,11 +96,8 @@ def reset_password(
 def delete_user(
     user_id: str, 
     controller: UserController = Depends(get_user_controller),
-    current_user: User = Depends(is_admin)
-):
-    if str(current_user.id) != user_id and current_user.role != 'admin':
-            raise HTTPException(status_code=403, detail='Akses ditolak')
-    
+    dependencies=[Depends(is_admin)]
+):  
     try:
         user = controller.delete(user_id)
         if not user:

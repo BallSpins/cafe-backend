@@ -92,11 +92,10 @@ def reset_password(
     except SQLAlchemyError as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@router.delete('/{user_id}', status_code=status.HTTP_204_NO_CONTENT)
+@router.delete('/{user_id}', status_code=status.HTTP_204_NO_CONTENT, dependencies=[Depends(is_admin)])
 def delete_user(
     user_id: str, 
     controller: UserController = Depends(get_user_controller),
-    dependencies=[Depends(is_admin)]
 ):  
     try:
         user = controller.delete(user_id)

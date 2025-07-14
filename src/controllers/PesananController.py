@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session, joinedload
-from src.models import Pesanan
+from src.models import Pesanan, Menu
 from src.schemas import PesananCreate, PesananUpdate
 from src.utils import generate_ulid
 

@@ -22,6 +22,7 @@ class PesananUpdate(BaseModel):
 
 class PesananResponse(PesananBase):
     id: str
+    harga: Optional[int]
     created_at: datetime
     menu: Optional[MenuResponse] = None
     user: Optional[UserResponse] = None

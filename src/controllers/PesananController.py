@@ -23,11 +23,15 @@ class PesananController:
         new_pesanans = []
         if request.menu_ids:
             for menu_id in request.menu_ids:
+                menu = self.db.query(Menu).filter(Menu.id == menu_id).first()
+                if not menu:
+                    continue
                 new_pesanan = Pesanan(
                     id=generate_ulid(),
                     user_id=request.user_id,
                     menu_id=menu_id,
                     status=request.status
+                    harga=menu.harga
                 )
 
                 self.db.add(new_pesanan)

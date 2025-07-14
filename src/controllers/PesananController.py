@@ -30,7 +30,7 @@ class PesananController:
                     id=generate_ulid(),
                     user_id=request.user_id,
                     menu_id=menu_id,
-                    status=request.status
+                    status=request.status,
                     harga=menu.harga
                 )
 
